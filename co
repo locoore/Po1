@@ -1,0 +1,62 @@
+import random
+
+
+
+ice=[]
+print("大樂透時間！")
+
+    
+while len(ice)<6:
+    try:
+        cho = int(input("請選號："))
+        if str(cho).isdigit() and cho in ice:
+            print("重複了，選別的")
+        else:
+            ice.append(cho)
+    except ValueError:
+        print("只能輸入數字")
+lot=[]#拿來放後面要導出的 num 的六組數字
+
+lot = random.sample(range(1,99),6)
+
+
+#while len(lot)<6:
+   # if num in lot:
+      #  pass
+  #  else:
+      #  num = random.randit(1,10)
+      #  lot.append(num)
+
+
+#for i in range(6):#六次
+   # num=random.randint(1,10)#數量距，隨機.採樣
+    #lot.append(num)#把 num 的六組數字加到 lot 列表裡
+    
+    
+    
+print("你選擇的的樂透號碼是... ...")
+print(ice)
+    
+print("本期的樂透號碼是... ...")
+print(lot)
+
+cou=0
+for num in ice:
+    if num in lot:
+        cou+=1
+
+if sorted(ice) == sorted(lot):
+    print("頭獎！")
+else:
+    print("中",cou,"個")
+    
+if cou == 1:
+    print("六獎！")
+if cou == 2:
+    print("五獎！")
+if cou == 3:
+    print("四獎！")
+if cou == 4:
+    print("三獎！")
+if cou == 5:
+    print("二獎！")
